@@ -1,0 +1,28 @@
+<div mb-4>
+    <h4 style="color: rgb(166, 53, 121);">Pending Tasks!</h4>
+</div>
+
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Task Assigned To</th>
+            <th>Description</th>
+            <th>Status</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        <tr *ngFor="let pendingTask of pendingTasks ;let i=index">
+            <td> {{pendingTask.id}} </td>
+            <td>{{pendingTask.taskAssignedTo}}</td>
+            <td>{{pendingTask.description}}</td>
+            <td>
+                <select (change)="changePendingStatusFn(pendingTask,i)">
+                    <option value="pending">Pending</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </td>
+        </tr>
+    </tbody>
+</table>

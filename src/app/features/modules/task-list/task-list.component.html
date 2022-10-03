@@ -1,0 +1,43 @@
+<div class="text-center mb-4">
+    <button class="btn btn-outline-info" (click)="openPopupFn()">Add Task</button>
+</div>
+
+<p-dialog header="Title" [(visible)]="display" [modal]="true">
+    <div>
+        <form [formGroup]="addTaskForm">
+            <div>
+                <label for="">Id</label>
+                <input type="number" class="form-control" formControlName="id">
+            </div>
+            <div>
+                <label for="">Task Assigned To</label>
+                <input type="text" class="form-control" formControlName="taskAssignedTo">
+            </div>
+            <div>
+                <label for="">Description</label>
+                <input type="text" class="form-control" formControlName="description">
+            </div>
+            <div>
+                <label for="">Status</label>
+                <select name="" id="" class="form-select" formControlName="status">
+                    <option value="pending">Pending</option>
+                </select>
+            </div>
+            <div class="text-center mt-2">
+                <button class="btn btn-outline-success" (click)="addTaskFn()">Add Task</button>
+            </div>
+        </form>
+    </div>
+</p-dialog>
+
+
+
+
+<div class="row">
+    <div class="col-md-6">
+        <app-pending-task [addTask]="addTask"></app-pending-task>
+    </div>
+    <div class="col-md-6">
+        <app-completed-task></app-completed-task>
+    </div>
+</div>
